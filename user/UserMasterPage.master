@@ -1,0 +1,143 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserMasterPage.master.cs" Inherits="user_UserMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+     <style type="text/css">
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif; /* Specify the font family */
+            font-size: 14px; /* Specify the base font size */
+            line-height: 1.6; /* Specify the line height */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #333; /* Background color for header */
+            color: #fff; /* Text color */
+            padding: 10px 20px; /* Add padding */
+            text-align: center; /* Center align text */
+        }
+
+        /* Logo styles */
+        .logo {
+            width: 100px; /* Set width */
+            height: auto; /* Maintain aspect ratio */
+            display: inline-block; /* Display as block element */
+            vertical-align: middle; /* Align vertically in line */
+        }
+
+        /* Title styles */
+        .title {
+            display: inline-block; /* Display as block element */
+            vertical-align: middle; /* Align vertically in line */
+            margin-left: 10px; /* Add margin */
+        }
+
+        /* Main content styles */
+        .main_content {
+            display: flex; /* Use flexbox layout */
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            background-color: #333; /* Background color for sidebar */
+            color: #fff; /* Text color */
+            width: 250px; /* Set the width of the sidebar */
+            padding: 20px; /* Add padding */
+        }
+
+        /* Sidebar menu styles */
+        #Menu1 {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the menu items */
+        #Menu1 > li {
+            margin-bottom: 10px; /* Adjust spacing between menu items */
+        }
+
+        /* Style menu links */
+        #Menu1 a {
+            color: #fff; /* Text color */
+            text-decoration: none; /* Remove underline */
+            display: block;
+            padding: 10px; /* Add padding */
+        }
+
+        /* Hover effect on menu items */
+        #Menu1 a:hover {
+            background-color: #555; /* Change background color on hover */
+        }
+
+        /* Style submenu items */
+        #Menu1 ul li {
+            margin: 5px 0; /* Adjust spacing between submenu items */
+        }
+
+        /* Content styles */
+        .content {
+            flex-grow: 1; /* Allow content to grow */
+            padding: 20px; /* Add padding */
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #333; /* Background color for footer */
+            color: #fff; /* Text color */
+            padding: 10px 20px; /* Add padding */
+            text-align: center; /* Center align text */
+            margin-top: auto; /* Push footer to bottom */
+        }
+
+        /* Icon styles */
+        .fa {
+            margin-right: 5px; /* Add spacing between icon and text */
+        }
+    </style>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+   <div class="header">
+        <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl7aRWJ7OBuEoB5cdlFElJxaY-2gALk9wGRoQCZnRTxQ&s"
+            alt="University Logo" />
+        <p class="title">Atmiya University</p>
+        <asp:Button ID="btn_logout" runat="server" Text="Logout" onclick="btn_logout_Click" />
+    </div>
+    
+     <div class="main_content">
+            <div class="sidebar">
+                <asp:Menu ID="Menu1" runat="server" ForeColor="White" Font-Size="Larger" Font-Bold="True">
+                    <Items>
+                        <asp:MenuItem Text='<i class="fas fa-user"></i> Personal Details' Value="PersonalDetails" NavigateUrl="ViewDetails/view_personalDetails.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text='<i class="fas fa-graduation-cap"></i> Academic Details' Value="AcademicDetails" NavigateUrl="ViewDetails/view_academicDetails.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text='<i class="fas fa-trophy"></i> Achievement Details' Value="AchievementDetails" NavigateUrl="ViewDetails/view_achievementDetails.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text='<i class="fas fa-briefcase"></i> Internship Details' Value="InternshipDetails" NavigateUrl="~/user/ViewDetails/view_internshipDetails.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text='<i class="fas fa-address-book"></i> Contact Details' Value="ContactDetails" NavigateUrl="ViewDetails/view_contactDetails.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text='<i class="fas fa-book"></i> Subjects' Value="Subjects" NavigateUrl="view_subjects.aspx"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+
+            <div class="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div class="footer">
+            <p>
+                Copyright &copy; 2023 All Rights Reserved</p>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="FacultyMasterPage.master.cs" Inherits="faculty_FacultyMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .header {
+            background-color: #333; /* Background color for header */
+            color: #fff; /* Text color */
+            padding: 10px 20px; /* Add padding */
+            text-align: center; /* Center align text */
+        }
+
+       .sidebar {
+        background-color: #333; /* Background color for sidebar */
+        color: #fff; /* Text color */
+        width: 250px; /* Set the width of the sidebar */
+        padding: 20px; /* Add padding */
+    }
+
+    /* Sidebar menu styles */
+    #Menu1 {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the menu items */
+    #Menu1 > li {
+        margin-bottom: 10px; /* Adjust spacing between menu items */
+    }
+
+    /* Style menu links */
+    #Menu1 a {
+        color: #fff; /* Text color */
+        text-decoration: none; /* Remove underline */
+        display: block;
+        padding: 10px; /* Add padding */
+    }
+
+    /* Hover effect on menu items */
+    #Menu1 a:hover {
+        background-color: #555; /* Change background color on hover */
+    }
+
+    /* Style submenu items */
+    #Menu1 ul li {
+        margin: 5px 0; /* Adjust spacing between submenu items */
+    }
+        .title {
+            display: inline-block; /* Display as block element */
+            vertical-align: middle; /* Align vertically in line */
+            margin-left: 10px; /* Add margin */
+            color: white; /* Set font color to white */
+            font-size: 24px; /* Increase font size */
+        }
+    </style>
+    <link href="../user/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="header">
+        <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl7aRWJ7OBuEoB5cdlFElJxaY-2gALk9wGRoQCZnRTxQ&s"
+            alt="University Logo" />
+        <p class="title">
+            Atmiya University</p>
+             <asp:Button ID="btn_logout" runat="server" Text="Logout" onclick="btn_logout_Click" />
+    </div>
+    <div class="main_content">
+         <div class="sidebar">
+                <asp:Menu ID="Menu1" runat="server" ForeColor="White" Font-Size="Larger">
+                    <%-- <StaticMenuItemStyle HorizontalPadding="10px" />--%>
+                    <Items>
+                        <asp:MenuItem Text='<i class="fas fa-university"></i> faculty' Value="faculty" NavigateUrl="~/faculty/add_facultyDetails.aspx">
+                            <asp:MenuItem Text='<i class="fas fa-users"></i> View Faculty' Value="viewFaculty" NavigateUrl="~/faculty/view_facultyDetails.aspx" />
+                        </asp:MenuItem>
+                        <asp:MenuItem Text='<i class="fas fa-graduation-cap"></i> Student' Value="Student" NavigateUrl="~/faculty/view_studentDetails.aspx">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text='<i class="fas fa-book"></i> Subject' Value="Subject" NavigateUrl="~/faculty/view_subjects.aspx">
+                        </asp:MenuItem>
+                          <asp:MenuItem Text='<i class="fas fa-book"></i> Create Result' Value="Create Result" NavigateUrl="~/faculty/createResult.aspx">
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="text-align: center;">
+            copyright &copy;2023 All Rights Reserved</p>
+    </div>
+    </form>
+</body>
+</html>
